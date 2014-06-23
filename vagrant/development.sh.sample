@@ -1,0 +1,6 @@
+#! /bin/bash
+
+# Setting Files
+export MYSQL_CONF_FILE="/vagrant/vagrant/files/my.cnf"
+export NGINX_VHOST_FILE="/vagrant/vagrant/files/vhost.conf"
+export GRAPHITE_SETTINGS="/vagrant/vagrant/files/graphite-settings.py"
