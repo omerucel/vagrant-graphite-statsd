@@ -87,7 +87,7 @@ sleep 1
 
 echo "STARTING GRAPHITE SECTION..."
 sleep 2
-yum --enablerepo=remi install -y mod_python mod_wsgi pycairo python-django15 python-django-tagging python-memcached python-twisted python-ldap python-txamqp bitmap bitmap-fonts MySQL-python
+yum --enablerepo=remi install -y mod_python mod_wsgi pycairo python-django15 python-django-tagging python-memcached python-twisted python-ldap python-txamqp bitmap bitmap-fonts MySQL-python pytz pyparsing
 mysql -e "CREATE DATABASE graphite;" -u root
 
 mkdir -p /opt/graphite
@@ -109,12 +109,14 @@ cp /opt/graphite/conf/graphite.wsgi.example /opt/graphite/conf/graphite.wsgi
 
 cd /opt/graphite
 chmod -R 777 storage
+chmod 777 /opt/graphite/conf/graphite.wsgi
 python setup.py install
 
 cp examples/example-graphite-vhost.conf /etc/httpd/conf.d/graphite-web.conf
 
 cd webapp/graphite
 ln -s "${GRAPHITE_SETTINGS}" /opt/graphite/webapp/graphite/local_settings.py
+cd /opt/graphite/webapp
 python manage.py syncdb --noinput
 
 cd /opt/graphite

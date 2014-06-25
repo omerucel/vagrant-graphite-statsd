@@ -9,7 +9,7 @@ DEBUG = True
 #####################################
 # Filesystem Paths #
 #####################################
-LOG_DIR = '/vagrant/log/'
+LOG_DIR = '/opt/graphite/storage/log/webapp/'
 
 ##########################
 # Database Configuration #
