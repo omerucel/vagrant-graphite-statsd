@@ -18,8 +18,8 @@ DATABASES = {
     'default': {
         'NAME': 'graphite',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': '',
+        'USER': 'graphite',
+        'PASSWORD': 'graphite',
         'HOST': '',
         'PORT': ''
     }
